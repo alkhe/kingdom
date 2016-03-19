@@ -7,39 +7,39 @@ A modular Virtual DOM combinator library.
 
 ## API
 
-### `Kingdom`
+### `module Kingdom`
 
-#### `data DOM = DOM Tag [Prop] [DOM] | Text Content`
+##### `data DOM = DOM Tag [Prop] [DOM] | Text Content`
 `DOM` implements `Show`.
 
 ```hs
 show div_ == "<div></div>"
 ```
 
-#### `node :: String -> DOM`
+##### `node :: String -> DOM`
 Creates an empty Virtual DOM node using the provided string as its tag.
 
-#### `text :: String -> DOM`
+##### `text :: String -> DOM`
 Creates a Virtual DOM node containing only the provided string.
 
-#### `(\-) :: DOM -> Prop -> DOM`
+##### `(\-) :: DOM -> Prop -> DOM`
 Attaches a property to a Virtual DOM node.
 
-#### `(\--) :: DOM -> [Prop] -> DOM`
+##### `(\--) :: DOM -> [Prop] -> DOM`
 Attaches a list of properties to a Virtual DOM node.
 
-#### `(\+) :: DOM -> DOM -> DOM`
+##### `(\+) :: DOM -> DOM -> DOM`
 Appends a child Virtual DOM node to a parent Virtual DOM node.
 
-#### `(\++) :: DOM -> [DOM] -> DOM`
+##### `(\++) :: DOM -> [DOM] -> DOM`
 Appends a list of child Virtual DOM node to a parent Virtual DOM node.
 
-#### `(\:) :: DOM -> String -> DOM`
+##### `(\:) :: DOM -> String -> DOM`
 Appends a string as a child to a Virtual DOM node.
 
 Equivalent to `\node string -> node \+ text string`.
 
-### `Kingdom.Elements`
+### `module Kingdom.Elements`
 
 Provides all HTML elements in the form:
 ```hs
@@ -49,7 +49,7 @@ el = node "el"
 
 `div`, `span`, and `main` are used for other purposes in Haskell, so they are suffixed with an underscore. (e.g. `div_`)
 
-### `Kingdom.Properties`
+### `module Kingdom.Properties`
 
 Provides often used HTML properties in the form:
 ```hs
