@@ -1,4 +1,4 @@
-module Kingdom.Properties (class_, id_, for, value) where
+module Kingdom.Properties (class_, id_, for, value, href) where
 
 import Kingdom (Prop, PropValue)
 
@@ -13,3 +13,6 @@ for = (,) "for"
 
 value :: PropValue -> Prop
 value = (,) "value"
+
+href :: PropValue -> Prop
+href = (,) "href"

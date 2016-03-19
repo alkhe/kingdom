@@ -6,8 +6,9 @@ module Kingdom (
   Content,
   DOMList,
   node, text,
-  (/-), (//-),
-  (/:), (//:),
+  (/-), (/--),
+  (/+), (/++),
+  (/:)
   ) where
 
 import Data.Monoid ((<>))
@@ -45,23 +46,27 @@ node tag = DOM tag [] []
 
 text :: Content -> DOM
 text = Text
-
 -- Append a single prop
+
 infixl 5 /-
 (/-) :: DOM -> Prop -> DOM
 (/-) (DOM t ps fs) p = DOM t (ps <> [p]) fs
 
 -- Append a list of props
-infixl 5 //-
-(//-) :: DOM -> PropList -> DOM
-(//-) (DOM t ps fs) pp = DOM t (ps <> pp) fs
+infixl 5 /--
+(/--) :: DOM -> PropList -> DOM
+(/--) (DOM t ps fs) pp = DOM t (ps <> pp) fs
 
 -- Append a single element
-infixl 5 /:
-(/:) :: DOM -> DOM -> DOM
-(/:) (DOM t ps fs) f = DOM t ps (fs <> [f])
+infixl 5 /+
+(/+) :: DOM -> DOM -> DOM
+(/+) (DOM t ps fs) f = DOM t ps (fs <> [f])
 
 -- Append a list of elements
-infixl 5 //:
-(//:) :: DOM -> [DOM] -> DOM
-(//:) (DOM t ps fs) ff = DOM t ps (fs <> ff)
+infixl 5 /++
+(/++) :: DOM -> [DOM] -> DOM
+(/++) (DOM t ps fs) ff = DOM t ps (fs <> ff)
+
+infixl 5 /:
+(/:) :: DOM -> Content -> DOM
+(/:) (DOM t ps fs) s = DOM t ps (fs <> [text s])
