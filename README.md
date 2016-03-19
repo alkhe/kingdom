@@ -61,3 +61,4 @@ The module currently exports `class_`, `id_`, `for`, and `value`.
 
 ## Todo
 - use DiffList for props and children to improve performance
+ - or [Data.Sequence](http://hackage.haskell.org/package/containers-0.5.7.1/docs/Data-Sequence.html)
