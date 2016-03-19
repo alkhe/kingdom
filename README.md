@@ -2,7 +2,7 @@
 
 A modular Virtual DOM combinator library.
 
-## Example
+## Example (ghci)
 ![http://i.imgur.com/cKQ2oG7.png](http://i.imgur.com/cKQ2oG7.png)
 
 ## API
